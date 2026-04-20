@@ -51,7 +51,7 @@ final class SVG_Uploader_Plugin {
 		wp_enqueue_script(
 			'svg-uploader-media-tab',
 			$script_url,
-			array( 'media-views', 'wp-api-fetch', 'wp-blocks', 'wp-data', 'wp-element', 'wp-i18n' ),
+			array( 'media-views', 'wp-api-fetch', 'wp-blocks', 'wp-data', 'wp-element' ),
 			file_exists( $script_path ) ? filemtime( $script_path ) : '1.0.0',
 			true
 		);
@@ -64,20 +64,6 @@ final class SVG_Uploader_Plugin {
 				'iconsUrl' => plugin_dir_url( __FILE__ ) . 'data/icon-nodes.json',
 				'uploadUrl' => esc_url_raw( rest_url( 'wp/v2/media' ) ),
 				'nonce'    => wp_create_nonce( 'wp_rest' ),
-				'i18n'     => array(
-					'insert'            => __( 'Insert', 'svg-uploader' ),
-					'inserting'         => __( 'Uploading…', 'svg-uploader' ),
-					'colorLabel'        => __( 'Icon Color', 'svg-uploader' ),
-					'strokeLabel'       => __( 'Stroke Width', 'svg-uploader' ),
-					'sizeLabel'         => __( 'Size (px)', 'svg-uploader' ),
-					'searchLabel'       => __( 'Search Icons', 'svg-uploader' ),
-					'searchPlaceholder' => __( 'Search Lucide icons…', 'svg-uploader' ),
-					'description'       => __( 'Browse the bundled Lucide icon library, tweak the color, and insert an inline SVG.', 'svg-uploader' ),
-					'loading'           => __( 'Loading Lucide icons…', 'svg-uploader' ),
-					'empty'             => __( 'No icons matched your search.', 'svg-uploader' ),
-					'loadMore'          => __( 'Load More', 'svg-uploader' ),
-					'uploadError'       => __( 'The SVG could not be uploaded to the media library.', 'svg-uploader' ),
-				),
 			)
 		);
 	}
